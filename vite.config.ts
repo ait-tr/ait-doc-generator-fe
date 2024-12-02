@@ -19,7 +19,7 @@ export default defineConfig({
     open: true,
     proxy: {
       "/api": {
-        target: "ссылка с бэка",
+        target: "http://localhost:8080",
       },
     },
   },
