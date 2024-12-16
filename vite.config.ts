@@ -4,6 +4,7 @@ import path from "path"
 
 // https://vitejs.dev/config/
 export default defineConfig({
+  plugins: [react()],
   resolve: {
     alias: {
       assets: path.resolve(__dirname, "src/assets"),
@@ -13,13 +14,12 @@ export default defineConfig({
       styles: path.resolve(__dirname, "src/styles"),
     },
   },
-  plugins: [react()],
-  base: "/home",
+  base: "/",
   server: {
     open: true,
     proxy: {
       "/api": {
-        target: "http://localhost:8080",
+        target: "http://localhost:8080/#/",
       },
     },
   },
