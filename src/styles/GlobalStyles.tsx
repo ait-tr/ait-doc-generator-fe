@@ -39,7 +39,7 @@ export default GlobalStyles
 export const globalPageStyles = css`
   display: flex;
   flex: 1;
-  background-color: ${colors.BACKGROUND_GRAY};
+  background-color: white;
   border-radius: 50px;
   padding: 30px;
 `
