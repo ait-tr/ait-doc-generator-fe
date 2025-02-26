@@ -1,94 +1,69 @@
-import { useNavigate } from "react-router-dom"
+import { useState, useEffect, ChangeEvent } from 'react'
+import { Outlet, useLocation } from 'react-router-dom'
+import { v4 } from 'uuid'
+
+
 
 import {
+  Footer,
+  FooterLink,
+  FooterNav,
   LayoutWrapper,
-  Header,
-  NavigationContainer,
   Main,
-  Logo,
-  LogoImg,
-  Link,
-  Footer
-} from "./styles"
+} from './styles'
+import { DG_APP_ROUTES } from '../../constants/routes'
+import Header from '../Header/Header'
 
-import { LayoutProps, PagesPaths } from "./types"
-import logo from "../../assets/DocGen_transparent_background.png"
 
-function Layout({ children }: LayoutProps) {
-  const navigate = useNavigate()
+function Layout() {
+  const location = useLocation()
+  const [toolName, setToolName] = useState<string>('')
 
-  const goToHomePage = () => {
-    navigate(PagesPaths.HOME)
+  const isLogin = Boolean(localStorage.getItem('accessToken'))
+
+  useEffect(() => {
+    setToolName('')
+  }, [location.pathname])
+
+  const onChangeValue = (event: ChangeEvent<HTMLInputElement>) => {
+    setToolName(event.target.value)
   }
+
+  const appLinksFooter = {
+    [DG_APP_ROUTES.HELP]: 'Help',
+    [DG_APP_ROUTES.ADVERTISING]: 'Advertising',
+    [DG_APP_ROUTES.ABOUT_US]: 'About us',
+    [DG_APP_ROUTES.CONTACTS]: 'Contacts',
+    [DG_APP_ROUTES.PRIVACY_POLICY]: 'Privacy Policy',
+    [DG_APP_ROUTES.CONDITIONS]: 'Conditions of use',
+    [DG_APP_ROUTES.IMPRINT]: 'Imprint',
+  }
+
+  const footerLinks = Object.keys(appLinksFooter).map((link: string) => (
+    <FooterLink key={v4()} to={link}>
+      {appLinksFooter[link as keyof typeof appLinksFooter]}
+    </FooterLink>
+  ))
 
   return (
     <LayoutWrapper>
-      <Header>
-        <Logo onClick={goToHomePage}>
-        <LogoImg
-              src={logo}
-            />
-        </Logo>
-        <NavigationContainer>
-          <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.HOWITWORKING}
-          >
-            How it working
-          </Link>
-          <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.LOGIN}
-          >
-            Login
-          </Link>
-          <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.REGISTRATION}
-          >
-            Registration
-          </Link>
-        </NavigationContainer>
-      </Header>
-      <Main>{children}</Main>
+      <Header
+        isLogin={isLogin}
+        toolName={toolName}
+        onChangeValue={onChangeValue}
+        onSearch={function (): void {
+          throw new Error('Function not implemented.')
+        }}
+      />
+      <Main>
+        <Outlet />
+      </Main>
       <Footer>
-      <Logo onClick={goToHomePage}>
-        <LogoImg
-              src={logo}
-            />
-        </Logo>
-        <NavigationContainer>
-      <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.HOME}
-          >
-            FAQ
-          </Link>
-          <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.HOME}
-          >
-            Privacy Policy
-          </Link>
-          </NavigationContainer>
+        <FooterNav>{footerLinks}</FooterNav>
       </Footer>
     </LayoutWrapper>
   )
 }
 
 export default Layout
+
