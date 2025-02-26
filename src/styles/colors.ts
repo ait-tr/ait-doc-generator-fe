@@ -1,4 +1,5 @@
 export interface COLORS {
+
   PRIMARY: string
   ERROR: string
   BUTTON_BLUE: string

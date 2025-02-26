@@ -1,26 +1,21 @@
-import { Route, Routes } from "react-router-dom"
-
-import Layout from "./components/Layout/Layout"
-
-import Home from "pages/Home/Home"
-import Login from "pages/Login/Login"
-import Registration from "pages/Registration/Registration"
-
-import GlobalStyles from "./styles/GlobalStyles"
+import { BrowserRouter, Route, Routes } from 'react-router-dom'
+import { SnackbarProvider } from 'notistack'
+import { DG_APP_ROUTES } from './constants/routes'
+import Layout from './components/Layout/Layout'
+import Home from './pages/Home/Home'
 
 function App() {
-  return (
-    <>
-      <GlobalStyles />
-      <Layout>
-          <Routes>
-          <Route path="/home" element={<Home/>} />
-          <Route path="/login" element={<Login/>} />
-          <Route path="/registration" element={<Registration/>} />
-          </Routes>
-      </Layout>
-    </>
-  )
+  return ( <SnackbarProvider maxSnack={3}>
+    <BrowserRouter>
+      <Routes>
+      <Route path={DG_APP_ROUTES.HOME} element={<Layout />}/>
+      <Route path={DG_APP_ROUTES.HOME} element={<Home/>}/>
+      
+      </Routes>
+    </BrowserRouter>
+  </SnackbarProvider>)
+    
+  
 }
 
 export default App

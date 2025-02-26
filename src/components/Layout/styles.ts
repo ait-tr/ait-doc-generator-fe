@@ -67,3 +67,15 @@ export const Footer = styled.div`
   padding-right: 85px;
   align-items: center;
 `
+export const FooterLink = styled(Link)`
+  color: white;
+  font-size: 14px;
+  text-decoration: bold;
+`
+export const FooterNav = styled.nav`
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: space-evenly;
+  text-align: center;
+`
