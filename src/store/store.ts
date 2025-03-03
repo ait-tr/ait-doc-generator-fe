@@ -2,9 +2,14 @@ import type { Action, ThunkAction } from "@reduxjs/toolkit"
 import { combineSlices, configureStore } from "@reduxjs/toolkit"
 import { setupListeners } from "@reduxjs/toolkit/query"
 
-const rootReducer = combineSlices(
-  
-)
+
+//import documentReducer from "./redux/documents/documentSlice";
+//import userAuthReducer from "./redux/users/userAuthSlice";
+
+const rootReducer = combineSlices({
+  //documents: documentReducer,
+  //userAuth: userAuthReducer,
+});
 
 export type RootState = ReturnType<typeof rootReducer>
 

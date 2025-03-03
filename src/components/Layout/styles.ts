@@ -9,7 +9,7 @@ export const LayoutWrapper = styled.div`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 `
 
-export const Header = styled.div`
+export const StayledHeader = styled.div`
   display: flex;
   width: 100%;
   min-height: 80px;

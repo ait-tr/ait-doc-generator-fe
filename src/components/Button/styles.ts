@@ -7,12 +7,12 @@ interface StyledButtonProps {
 }
 
 const getButtonColor = (
-  disbled: boolean | undefined,
+  disabled: boolean | undefined,
   $isTransparent: boolean | undefined,
 ) => {
   if ($isTransparent) {
     return colors.TRANSPARENT
-  } else if (disbled) {
+  } else if (disabled) {
     return colors.DISABLED
   } else {
     return colors.BUTTON_BLUE

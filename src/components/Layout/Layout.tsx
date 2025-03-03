@@ -1,16 +1,17 @@
-import { Outlet } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
 import { v4 } from "uuid"
 
-import { Footer, FooterLink, FooterNav, LayoutWrapper, Main } from "./styles"
+import { Footer, FooterLink, FooterNav, LayoutWrapper, Logo, LogoImg, Main, StayledHeader } from "./styles"
 import { DG_APP_ROUTES } from "../../constants/routes"
 import Header from "../Header/Header"
+import DocGenLogo from "../../assets/DocGen_transparent_background.png"
 
 function Layout() {
+  const navigate = useNavigate();
   const isLogin = Boolean(localStorage.getItem("accessToken"))
 
   const appLinksFooter = {
     [DG_APP_ROUTES.HELP]: "Help",
-    [DG_APP_ROUTES.ADVERTISING]: "Advertising",
     [DG_APP_ROUTES.ABOUT_US]: "About us",
     [DG_APP_ROUTES.CONTACTS]: "Contacts",
     [DG_APP_ROUTES.PRIVACY_POLICY]: "Privacy Policy",
@@ -26,7 +27,9 @@ function Layout() {
 
   return (
     <LayoutWrapper>
-      <Header></Header>
+      <StayledHeader><Logo onClick={() => navigate("/")}>
+          <LogoImg src={DocGenLogo} alt="DocGen Logo" />
+        </Logo></StayledHeader>
       <Main>
         <Outlet />
       </Main>
