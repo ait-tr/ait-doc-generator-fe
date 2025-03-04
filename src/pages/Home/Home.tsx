@@ -1,9 +1,11 @@
+import { HomeWrapper } from "./styles"
+
 function Home() {
   return(
-  <div>
+  <HomeWrapper>
     Home is here
-
-  </div>
+ 
+  </HomeWrapper>
   )
 }
 

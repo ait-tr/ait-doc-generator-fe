@@ -4,3 +4,8 @@ export type Document = {
   content: string;
   createdAt: string;
 };
+
+export type DocumentState = {
+  documents: Document[];
+  activeDocument?: Document | null;
+};
