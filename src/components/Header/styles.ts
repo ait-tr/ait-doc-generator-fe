@@ -5,17 +5,17 @@ import { colors } from 'styles/colors'
 
 
 export const AppHeader = styled.header`
-  position: fixed;
-  top: 0;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  position: fixed;
-  z-index: 10;
+ display: flex;
   width: 100%;
-  height: 80px;
-
-  backdrop-filter: blur(4px);
+  min-height: 80px;
+  padding: 10px;
+  gap: 10px;
+  background-color: rgba(18, 45, 77, 0.5);
+  border-bottom: 1px solid rgba(210, 210, 210, 1);
+  justify-content: space-between;
+  padding-left: 85px;
+  padding-right: 85px;
+  align-items: center;
 
 `
 
@@ -89,3 +89,14 @@ export const SearchContainer = styled.div`
   width: 700px;
   height: fit-content;
 `
+
+export const Logo = styled.div`
+  height: 100%;
+  width: fit-content;
+  cursor: pointer;
+`
+
+export const LogoImg = styled.img`
+  width: 100px;
+  height: 100px;
+`;

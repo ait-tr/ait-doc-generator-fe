@@ -1,5 +1,6 @@
 export enum DG_APP_ROUTES {
   HOME = "/",
+  DOCUMENTS = "/Documents",
   LOGIN = "/login",
   HELP = "/help",
   ABOUT_US = "/about-us",

@@ -3,11 +3,11 @@ import { Link, useNavigate } from "react-router-dom"
 
 import { useFormik } from "formik"
 import * as Yup from "yup"
-import { AppDispatch } from "store/store"
-import { userAuthAction } from "store/redux/users/userAuthSlice"
+import { AppDispatch } from "../../store/store"
+import { userAuthAction } from "../../store/redux/users/userAuthSlice"
 
-import Input from "components/Input/Input"
-import Button from "components/Button/Button"
+import Input from "../../components/Input/Input"
+import Button from "../../components/Button/Button"
 
 import {
   ButtonContainer,

@@ -4,15 +4,15 @@ import { Link, useNavigate } from "react-router-dom"
 import { useFormik } from "formik"
 import * as Yup from "yup"
 
-import { AppDispatch } from "store/store"
+import { AppDispatch } from "../../store/store"
 import { useAppSelector } from "store/hooks"
 import {
   userAuthAction,
   userAuthSelectors,
-} from "store/redux/users/userAuthSlice"
+} from "../../store/redux/users/userAuthSlice"
 
-import Button from "components/Button/Button"
-import Input from "components/Input/Input"
+import Button from "../../components/Button/Button"
+import Input from "../../components/Input/Input"
 
 import {
   RegistrationContainer,

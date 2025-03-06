@@ -1,8 +1,10 @@
 import { useNavigate } from "react-router-dom"
 
-import { AppHeader, AppTitle } from "./styles"
+import { AppHeader, HeaderNav, Logo, LogoImg } from "./styles"
+import DocGenLogo from "../../assets/DocGen_transparent_background.png"
 
 import { DG_APP_ROUTES } from "../../constants/routes"
+import Documents from "../../pages/Documents/Documents"
 
 function Header() {
   const navigate = useNavigate()
@@ -12,8 +14,14 @@ function Header() {
   }
   return (
     <AppHeader>
-      <AppTitle onClick={goToHomePage}>Document-Generator</AppTitle>
-    </AppHeader>
+  <Logo onClick={goToHomePage}>
+    <LogoImg src={DocGenLogo} alt="DocGen Logo" />
+  </Logo>
+  
+  <HeaderNav> {} 
+   
+  </HeaderNav>
+</AppHeader>
   )
 }
 

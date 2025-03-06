@@ -1,10 +1,11 @@
 import { Outlet, useNavigate } from "react-router-dom"
 import { v4 } from "uuid"
 
-import { Footer, FooterLink, FooterNav, LayoutWrapper, Logo, LogoImg, Main, StayledHeader } from "./styles"
+import { Footer, FooterLink, FooterNav, LayoutWrapper, Main} from "./styles"
 import { DG_APP_ROUTES } from "../../constants/routes"
 import Header from "../Header/Header"
-import DocGenLogo from "../../assets/DocGen_transparent_background.png"
+import Documents from "../../pages/Documents/Documents"
+
 
 function Layout() {
   const navigate = useNavigate();
@@ -27,11 +28,10 @@ function Layout() {
 
   return (
     <LayoutWrapper>
-      <StayledHeader><Logo onClick={() => navigate("/")}>
-          <LogoImg src={DocGenLogo} alt="DocGen Logo" />
-        </Logo></StayledHeader>
+      <Header/>
       <Main>
         <Outlet />
+        <Documents />
       </Main>
       <Footer>
         <FooterNav>{footerLinks}</FooterNav>

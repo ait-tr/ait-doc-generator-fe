@@ -1,5 +1,5 @@
 import axios from "axios"
-import { createAppSlice } from "store/createAppSlice"
+import { createAppSlice } from "../../createAppSlice"
 
 import { UserAuthSliceState, LoginData } from "./types"
 
@@ -118,3 +118,6 @@ export const userAuthSlice = createAppSlice({
 
 export const userAuthAction = userAuthSlice.actions
 export const userAuthSelectors = userAuthSlice.selectors
+
+
+export default userAuthSlice.reducer;
