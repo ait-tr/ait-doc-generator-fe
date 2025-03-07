@@ -3,7 +3,7 @@ import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import { setActiveDocument } from "../../store/redux/documents/documentSlice";
 
-const DocumentList: React.FC = () => {
+const DocumentList = () => {
   const documents = useSelector((state: RootState) => state.documents.documents);
   const dispatch = useDispatch();
 

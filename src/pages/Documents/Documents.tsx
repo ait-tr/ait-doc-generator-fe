@@ -1,12 +1,12 @@
-import React from "react";
+
 import { useNavigate } from "react-router-dom";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { addDocument, setActiveDocument } from "../../store/redux/documents/documentSlice";
 import { v4 as uuidv4 } from "uuid";
 import { DocumentsWrapper, DocumentItem, CreateButton } from "./styles";
-import { RootState } from "store/store";
+import { RootState } from "../../store/store";
 
-const Documents: React.FC = () => {
+const Documents = () => {
   const dispatch = useAppDispatch();
   const navigate = useNavigate();
   const documents = useAppSelector((state: RootState) => state.documents.documents);
@@ -15,7 +15,7 @@ const Documents: React.FC = () => {
   const handleCreateDocument = () => {
     const newDoc = {
       id: uuidv4(),
-      title: "V001",
+      title: "Document-V001",
       content: "",
       createdAt: new Date().toISOString(),
     };
@@ -29,8 +29,8 @@ const Documents: React.FC = () => {
 
   return (
     <DocumentsWrapper>
-      <h1>Dokumente von Profile</h1>
-      <CreateButton onClick={handleCreateDocument}>Butten</CreateButton>
+      <h1>Dokumente</h1>
+      <CreateButton onClick={handleCreateDocument}>Erstelle ein Document</CreateButton>
       <ul>
         {documents.length > 0 ? (
           documents.map((doc) => (

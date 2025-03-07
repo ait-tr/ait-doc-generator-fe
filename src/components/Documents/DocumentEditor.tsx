@@ -1,9 +1,9 @@
-import React from "react";
+
 import { useSelector, useDispatch } from "react-redux";
 import { RootState } from "../../store/store";
 import { updateDocument } from "../../store/redux/documents/documentSlice";
 
-const DocumentEditor: React.FC = () => {
+const DocumentEditor = () => {
   const activeDocument = useSelector((state: RootState) => state.documents.activeDocument);
   const dispatch = useDispatch();
 
