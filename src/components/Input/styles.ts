@@ -1,5 +1,5 @@
 import styled from "@emotion/styled"
-import { colors } from "styles/colors"
+import { colors } from "../../styles/colors"
 
 interface StyledInputProps {
   $error: string | undefined
@@ -18,7 +18,7 @@ export const InputLabel = styled.label`
 
 const getStyledInputBorder = (
   disabled: boolean | undefined,
-  error: string | undefined ,
+  error: string | undefined,
 ) => {
   if (typeof error === "string") {
     return colors.ERROR

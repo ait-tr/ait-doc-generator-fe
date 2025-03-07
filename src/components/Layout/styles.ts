@@ -9,7 +9,7 @@ export const LayoutWrapper = styled.div`
   font-family: "Gill Sans", "Gill Sans MT", Calibri, "Trebuchet MS", sans-serif;
 `
 
-export const Header = styled.div`
+export const StayledHeader = styled.div`
   display: flex;
   width: 100%;
   min-height: 80px;
@@ -32,7 +32,7 @@ export const Logo = styled.div`
 export const LogoImg = styled.img`
   width: 100px;
   height: 100px;
-`;
+`
 
 export const NavigationContainer = styled.nav`
   display: flex;
@@ -66,4 +66,16 @@ export const Footer = styled.div`
   padding-left: 85px;
   padding-right: 85px;
   align-items: center;
+`
+export const FooterLink = styled(Link)`
+  color: white;
+  font-size: 14px;
+  text-decoration: bold;
+`
+export const FooterNav = styled.nav`
+  display: flex;
+  flex-direction: row;
+  gap: 50px;
+  justify-content: space-evenly;
+  text-align: center;
 `

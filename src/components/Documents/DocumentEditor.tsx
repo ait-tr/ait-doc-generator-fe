@@ -1,0 +1,31 @@
+import { useSelector, useDispatch } from "react-redux"
+import { RootState } from "../../store/store"
+import { updateDocument } from "../../store/redux/documents/documentSlice"
+
+const DocumentEditor = () => {
+  const activeDocument = useSelector(
+    (state: RootState) => state.documents.activeDocument,
+  )
+  const dispatch = useDispatch()
+
+  if (!activeDocument) {
+    return <p>Kein Dokument ausgewählt.</p>
+  }
+
+  return (
+    <div>
+      <h2>{activeDocument.title}</h2>
+      <textarea
+        value={activeDocument.content}
+        onChange={e =>
+          dispatch(
+            updateDocument({ id: activeDocument.id, content: e.target.value }),
+          )
+        }
+      />
+      <button onClick={() => console.log("Speichern in DB")}>Speichern</button>
+    </div>
+  )
+}
+
+export default DocumentEditor

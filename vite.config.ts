@@ -12,17 +12,20 @@ export default defineConfig({
       pages: path.resolve(__dirname, "src/pages"),
       store: path.resolve(__dirname, "src/store"),
       styles: path.resolve(__dirname, "src/styles"),
+      constants: path.resolve(__dirname, "src/constants"),
+      "@": path.resolve(__dirname, "src"),
     },
   },
-  base: "/",
   server: {
     open: true,
     proxy: {
       "/api": {
-        target: "http://localhost:8080/",
+        target: "http://localhost:8080",
+        changeOrigin: true,
       },
     },
   },
+
   test: {
     globals: true,
     environment: "jsdom",

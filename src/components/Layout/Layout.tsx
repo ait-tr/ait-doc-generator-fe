@@ -1,91 +1,43 @@
-import { useNavigate } from "react-router-dom"
+import { Outlet, useNavigate } from "react-router-dom"
+import { v4 } from "uuid"
 
-import {
-  LayoutWrapper,
-  Header,
-  NavigationContainer,
-  Main,
-  Logo,
-  LogoImg,
-  Link,
-  Footer
-} from "./styles"
+import { Footer, FooterLink, FooterNav, LayoutWrapper, Main } from "./styles"
+import { DG_APP_ROUTES } from "../../constants/routes"
+import Header from "../Header/Header"
+import Documents from "../../pages/Documents/Documents"
+import Login from "pages/Login/Login"
+import HowItWorking from "pages/HowItWorking/HowItWorking"
 
-import { LayoutProps, PagesPaths } from "./types"
-import logo from "../../assets/DocGen_transparent_background.png"
-
-function Layout({ children }: LayoutProps) {
+function Layout() {
   const navigate = useNavigate()
+  const isLogin = Boolean(localStorage.getItem("accessToken"))
 
-  const goToHomePage = () => {
-    navigate(PagesPaths.HOME)
+  const appLinksFooter = {
+    [DG_APP_ROUTES.HELP]: "Help",
+    [DG_APP_ROUTES.ABOUT_US]: "About us",
+    [DG_APP_ROUTES.CONTACTS]: "Contacts",
+    [DG_APP_ROUTES.PRIVACY_POLICY]: "Privacy Policy",
+    [DG_APP_ROUTES.CONDITIONS]: "Conditions of use",
+    [DG_APP_ROUTES.IMPRINT]: "Imprint",
   }
+
+  const footerLinks = Object.keys(appLinksFooter).map((link: string) => (
+    <FooterLink key={v4()} to={link}>
+      {appLinksFooter[link as keyof typeof appLinksFooter]}
+    </FooterLink>
+  ))
 
   return (
     <LayoutWrapper>
-      <Header>
-        <Logo onClick={goToHomePage}>
-        <LogoImg
-              src={logo}
-            />
-        </Logo>
-        <NavigationContainer>
-          <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.HOWITWORKING}
-          >
-            How it working
-          </Link>
-          <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.LOGIN}
-          >
-            Login
-          </Link>
-          <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.REGISTRATION}
-          >
-            Registration
-          </Link>
-        </NavigationContainer>
-      </Header>
-      <Main>{children}</Main>
+      <Header />
+      <Main>
+        <Outlet />
+        <Login />
+        <HowItWorking />
+        <Documents />
+      </Main>
       <Footer>
-      <Logo onClick={goToHomePage}>
-        <LogoImg
-              src={logo}
-            />
-        </Logo>
-        <NavigationContainer>
-      <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.HOME}
-          >
-            FAQ
-          </Link>
-          <Link
-            style={({ isActive }) => ({
-              fontWeight: isActive ? "bold" : "normal",
-              textDecoration: isActive ? "underline" : "none",
-            })}
-            to={PagesPaths.HOME}
-          >
-            Privacy Policy
-          </Link>
-          </NavigationContainer>
+        <FooterNav>{footerLinks}</FooterNav>
       </Footer>
     </LayoutWrapper>
   )
