@@ -108,7 +108,7 @@ export const userAuthSlice = createAppSlice({
     logOut: create.reducer((state: UserAuthSliceState) => {
       state.currentUser = undefined
       state.accessToken = undefined
-      localStorage.removeItem("accessToken");
+      localStorage.removeItem("accessToken")
     }),
   }),
   selectors: {
@@ -119,5 +119,4 @@ export const userAuthSlice = createAppSlice({
 export const userAuthAction = userAuthSlice.actions
 export const userAuthSelectors = userAuthSlice.selectors
 
-
-export default userAuthSlice.reducer;
+export default userAuthSlice.reducer

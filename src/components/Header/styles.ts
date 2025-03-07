@@ -1,11 +1,9 @@
-import styled from '@emotion/styled'
-import { NavLink } from 'react-router-dom'
-import { colors } from 'styles/colors'
-
-
+import styled from "@emotion/styled"
+import { NavLink } from "react-router-dom"
+import { colors } from "styles/colors"
 
 export const AppHeader = styled.header`
- display: flex;
+  display: flex;
   width: 100%;
   min-height: 80px;
   padding: 10px;
@@ -16,7 +14,6 @@ export const AppHeader = styled.header`
   padding-left: 85px;
   padding-right: 85px;
   align-items: center;
-
 `
 
 export const AppTitle = styled.span`
@@ -45,8 +42,7 @@ export const HeaderLink = styled(NavLink)`
   border-radius: 20px;
 
   &.active {
-    font-weight: 'bold';
-
+    font-weight: "bold";
   }
   @media (max-width: 768px) {
     font-size: 16px;
@@ -69,8 +65,7 @@ export const LogoutContainer = styled.div`
   border-radius: 20px;
 
   &.active {
-    font-weight: 'bold';
-
+    font-weight: "bold";
   }
   @media (max-width: 768px) {
     font-size: 16px;
@@ -99,4 +94,4 @@ export const Logo = styled.div`
 export const LogoImg = styled.img`
   width: 100px;
   height: 100px;
-`;
+`

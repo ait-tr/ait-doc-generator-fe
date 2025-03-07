@@ -8,7 +8,6 @@ import Login from "./pages/Login/Login"
 import Registration from "./pages/Registration/Registration"
 import HowItWorking from "./pages/HowItWorking/HowItWorking"
 
-
 function App() {
   return (
     <SnackbarProvider maxSnack={3}>
@@ -17,10 +16,17 @@ function App() {
           <Route path={DG_APP_ROUTES.HOME} element={<Layout />}>
             <Route index element={<Home />} />
             <Route path={DG_APP_ROUTES.DOCUMENTS} element={<Documents />} />
-         <Route path={DG_APP_ROUTES.HOWITWORKING} element={<HowItWorking />} />
-          <Route path={DG_APP_ROUTES.LOGIN} element={<Login />} />
-          <Route path={DG_APP_ROUTES.REGISTRATION} element={<Registration />} />
-         </Route></Routes>
+            <Route
+              path={DG_APP_ROUTES.HOWITWORKING}
+              element={<HowItWorking />}
+            />
+            <Route path={DG_APP_ROUTES.LOGIN} element={<Login />} />
+            <Route
+              path={DG_APP_ROUTES.REGISTRATION}
+              element={<Registration />}
+            />
+          </Route>
+        </Routes>
       </BrowserRouter>
     </SnackbarProvider>
   )

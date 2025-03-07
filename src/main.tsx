@@ -4,8 +4,6 @@ import { Provider } from "react-redux"
 import App from "./App"
 import { store } from "./store/store"
 
-
-
 const container = document.getElementById("root")
 
 if (container) {

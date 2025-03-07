@@ -1,6 +1,4 @@
 function HowItWorking() {
- return(
-  <div>???</div>
- )
+  return <div>???</div>
 }
 export default HowItWorking

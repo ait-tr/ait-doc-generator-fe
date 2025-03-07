@@ -32,7 +32,7 @@ export const Logo = styled.div`
 export const LogoImg = styled.img`
   width: 100px;
   height: 100px;
-`;
+`
 
 export const NavigationContainer = styled.nav`
   display: flex;

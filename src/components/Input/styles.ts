@@ -18,7 +18,7 @@ export const InputLabel = styled.label`
 
 const getStyledInputBorder = (
   disabled: boolean | undefined,
-  error: string | undefined ,
+  error: string | undefined,
 ) => {
   if (typeof error === "string") {
     return colors.ERROR
