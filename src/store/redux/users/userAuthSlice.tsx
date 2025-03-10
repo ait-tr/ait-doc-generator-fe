@@ -1,5 +1,5 @@
 import axios from "axios"
-import { createAppSlice } from "store/createAppSlice"
+import { createAppSlice } from "../../createAppSlice"
 
 import { UserAuthSliceState, LoginData } from "./types"
 
@@ -108,8 +108,7 @@ export const userAuthSlice = createAppSlice({
     logOut: create.reducer((state: UserAuthSliceState) => {
       state.currentUser = undefined
       state.accessToken = undefined
-      state.role = undefined
-      state.error = undefined
+      localStorage.removeItem("accessToken")
     }),
   }),
   selectors: {
@@ -119,3 +118,5 @@ export const userAuthSlice = createAppSlice({
 
 export const userAuthAction = userAuthSlice.actions
 export const userAuthSelectors = userAuthSlice.selectors
+
+export default userAuthSlice.reducer

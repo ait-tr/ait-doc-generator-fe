@@ -1,10 +1,7 @@
-function Home() {
-  return(
-  <div>
-    Home is here
+import { HomeWrapper } from "./styles"
 
-  </div>
-  )
+function Home() {
+  return <HomeWrapper>Home is here</HomeWrapper>
 }
 
 export default Home
